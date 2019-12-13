@@ -1,0 +1,43 @@
+{
+  "name": "siptop",
+  "productName": "siptop",
+  "version": "0.0.1",
+  "description": "sipgate for desktop",
+  "main": "main.js",
+  "scripts": {
+    "postinstall": "electron-builder install-app-deps",
+    "start": "electron .",
+    "build": "electron-builder --linux --win",
+    "pack": "electron-builder --dir"
+  },
+  "repository": "https://github.com/vdbongard/siptop",
+  "keywords": [
+    "sipgate",
+    "listener",
+    "electron",
+    "tray"
+  ],
+  "author": {
+    "name": "Daniel van den Bongard",
+    "email": "d.van-den-bongard@greyrook.com",
+    "url": "https://greyrook.com"
+  },
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "electron": "^7.1.4",
+    "electron-builder": "^21.2.0"
+  },
+  "build": {
+    "appId": "com.greyrook.siptop",
+    "linux": {
+      "icon": "static/icon.icns",
+      "target": [
+        "rpm"
+      ],
+      "category": "Network"
+    },
+    "win": {
+      "icon": "static/icon.png"
+    }
+  }
+}
