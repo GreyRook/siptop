@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Menu, Tray, Notification } = require("electron");
+const { app, BrowserWindow, Menu, Tray } = require("electron");
 const path = require("path");
 
 let mainWindow;
@@ -10,25 +10,66 @@ function createWindow() {
     width: 800,
     height: 600,
     webPreferences: {
-      preload: path.join(__dirname, "preload.js")
+      preload: path.join(__dirname, "preload.js"),
+      nodeIntegration: true
     },
     title: "siptop",
     autoHideMenuBar: true
   });
 
   mainWindow.loadURL("https://app.sipgate.com/gsuite");
-  mainWindow.webContents.on("media-started-playing", () => {
-    let notification = new Notification({
-      title: "sipgate",
-      body: "You are getting called!"
-    });
 
-    notification.on("click", () => {
-      mainWindow.show();
-      mainWindow.focus();
-    });
+  mainWindow.webContents.on("ipc-message", (event, channel, args) => {
+    if (channel === "notification" && args === "click") {
+        mainWindow.show();
+        mainWindow.focus();
+    }
+  });
 
-    notification.show();
+  mainWindow.webContents.on("did-finish-load", () => {
+    const code = () => {
+      // ignore duplicated function call
+      if (window.injected) return;
+      window.injected = true;
+
+      const ipcRenderer = require("electron").ipcRenderer;
+
+      const mutationObserver = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          if (!mutation.addedNodes) return;
+
+          for (let i = 0; i < mutation.addedNodes.length; i++) {
+            const node = mutation.addedNodes[i];
+
+            const phoneNumberNode = node.querySelector(
+              '[data-test-selector="webphone-state-incoming"] div.container-0-46 > div'
+            );
+
+            if (phoneNumberNode) {
+              const phoneNumber = phoneNumberNode.textContent;
+
+              const notification = new Notification("sipgate", {
+                body: `Call from ${phoneNumber}`
+              });
+              notification.onclick = () => {
+                ipcRenderer.send("notification", "click");
+              };
+            }
+          }
+        });
+      });
+
+      mutationObserver.observe(document.body, {
+        attributes: true,
+        characterData: true,
+        childList: true,
+        subtree: true,
+        attributeOldValue: true,
+        characterDataOldValue: true
+      });
+    };
+
+    mainWindow.webContents.executeJavaScript(`(${code})()`);
   });
 
   mainWindow.on("minimize", function(event) {
@@ -48,7 +89,7 @@ function createWindow() {
     }
   });
 
-  tray = new Tray(path.join(__dirname,"static/tray-icon.png"));
+  tray = new Tray(path.join(__dirname, "static/tray-icon.png"));
   tray.setToolTip("Open");
   const contextMenu = Menu.buildFromTemplate([
     {
