@@ -55,6 +55,7 @@ function createWindow() {
       label: "Show App",
       click: function() {
         mainWindow.show();
+        mainWindow.focus();
       }
     },
     {
@@ -69,7 +70,8 @@ function createWindow() {
 
   tray.setContextMenu(contextMenu);
   tray.on("click", () => {
-    console.log("open");
+    mainWindow.show();
+    mainWindow.focus();
   });
 }
 
