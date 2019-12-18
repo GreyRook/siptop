@@ -29,10 +29,16 @@
   },
   "build": {
     "appId": "com.greyrook.siptop",
+    "files": [
+      "**/*",
+      "!flatpak",
+      "!build",
+      "!.flatpak-builder"
+    ],
     "linux": {
       "icon": "static/icon.icns",
       "target": [
-        "rpm"
+        "rpm", "tar.gz"
       ],
       "category": "Network"
     },
