@@ -1,8 +1,8 @@
-## About siptop
+# siptop
 
 siptop is a Desktop application wrapper around [sipgate.de](https://sipgate.de) built with Electron.
 
-#### Features
+## Features
 
 - notifications for calls
 - runs in the background
@@ -10,13 +10,12 @@ siptop is a Desktop application wrapper around [sipgate.de](https://sipgate.de) 
 
 ![Screenshot of the application window](./screenshots/main-screen.png)
 
-## Setup
+# Local setup
 
-`yarn install`
+## Start
 
-## Start locally
-
-`yarn start`
+1. `yarn install`
+2. `yarn start`
 
 ## Build
 
