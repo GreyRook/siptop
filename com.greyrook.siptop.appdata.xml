@@ -21,8 +21,8 @@
     <category>Network</category>
   </categories>
   <releases>
-    <release date="" version="">
-      <description></description>
+    <release date="2020.03.23" version="0.1.0">
+      <description>Initial release</description>
     </release>
   </releases>
   <content_rating type="oars-1.0">
