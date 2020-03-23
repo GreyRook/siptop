@@ -38,7 +38,8 @@
     "linux": {
       "icon": "static/icon.icns",
       "target": [
-        "rpm", "tar.gz"
+        "rpm",
+        "tar.gz"
       ],
       "category": "Network"
     },
