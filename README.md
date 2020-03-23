@@ -8,6 +8,8 @@ siptop is a Desktop application wrapper around [sipgate.de](https://sipgate.de) 
 - runs in the background
 - system tray icon
 
+![Screenshot of the application window](./screenshots/main-screen.png)
+
 ## Setup
 
 `yarn install`
