@@ -1,12 +1,12 @@
 ## About siptop
 
-siptop is a Desktop application wrapper around [sipgate.de](https://sipgate.de) built with Electron.  
+siptop is a Desktop application wrapper around [sipgate.de](https://sipgate.de) built with Electron.
 
 #### Features
 
 - notifications for calls
 - runs in the background
-- system tray icon 
+- system tray icon
 
 ## Setup
 
@@ -18,10 +18,11 @@ siptop is a Desktop application wrapper around [sipgate.de](https://sipgate.de) 
 
 ## Build
 
-1. Adjust the build script in `package.json` to only include the target platform(s), e.g.: `electron-builder --linux`  
+1. Adjust the build script in `package.json` to only include the target platform(s), e.g.: `electron-builder --linux`
 2. `yarn build`
 
-Platforms available: 
+Platforms available:
+
 - Linux:`--linux`
 - Windows: `--win`
 - Mac: `--mac`
@@ -38,7 +39,7 @@ Platforms available:
 
 #### Build and install
 
-`flatpak-builder build flatpak/com.greyrook.siptop.json --install --user --force-clean`
+`flatpak-builder build com.greyrook.siptop.json --install --user --force-clean`
 
 #### Run
 
