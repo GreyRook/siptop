@@ -33,7 +33,10 @@
       "**/*",
       "!flatpak",
       "!build",
-      "!.flatpak-builder"
+      "!.flatpak-builder",
+      "!com.greyrook.siptop.desktop",
+      "!com.greyrook.siptop.metainfo.xml",
+      "!com.greyrook.siptop.json"
     ],
     "linux": {
       "icon": "static/icon.icns",
@@ -41,7 +44,15 @@
         "rpm",
         "tar.gz"
       ],
-      "category": "Network"
+      "category": "Network",
+      "extraFiles": [
+        "com.greyrook.siptop.desktop",
+        "com.greyrook.siptop.metainfo.xml",
+        {
+          "from": "static/icon.png",
+          "to":  "icon.png"
+        }
+      ]
     },
     "win": {
       "icon": "static/icon.png"
