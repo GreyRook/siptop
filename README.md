@@ -50,9 +50,9 @@ Platforms available:
 
 #### Flatpak
 
-(Currently)[https://github.com/GreyRook/siptop/issues/5] the the flatpak is based on the `.tar.gz` linux build, so you must build first, via `yarn build`.
+[Currently](https://github.com/GreyRook/siptop/issues/5) the the flatpak is based on the `.tar.gz` linux build, so you must build first, via `yarn build`.
 
-Code for building the flatpak is on (flathub's github repo)[https://github.com/flathub/com.greyrook.siptop].
+Code for building the flatpak is on [flathub's github repo](https://github.com/flathub/com.greyrook.siptop).
 
 Dependencies:
 ```
