@@ -18,10 +18,6 @@
     "--filesystem=xdg-music:ro",
     "--filesystem=xdg-videos:ro",
     "--filesystem=xdg-download",
-    "--filesystem=xdg-run/dconf",
-    "--filesystem=~/.config/dconf:ro",
-    "--env=DCONF_USER_CONFIG_DIR=.config/dconf",
-    "--talk-name=ca.desrt.dconf",
     "--talk-name=org.freedesktop.Notifications",
     "--env=XDG_CURRENT_DESKTOP=Unity",
     "--talk-name=org.kde.StatusNotifierWatcher"
@@ -33,13 +29,9 @@
       "build-commands": [
         "cp -r siptop-0.1.0/* ${FLATPAK_DEST}/bin/",
         "install siptop.sh ${FLATPAK_DEST}/bin/siptop.sh",
-        "install -Dm644 com.greyrook.siptop.appdata.xml ${FLATPAK_DEST}/share/appdata/${FLATPAK_ID}.appdata.xml",
-        "install -Dm644 icon.png ${FLATPAK_DEST}/share/icons/hicolor/512x512/apps/${FLATPAK_ID}.png",
-        "install -Dm644 siptop.desktop ${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop",
-        "desktop-file-edit --set-key=\"Icon\" --set-value=\"com.greyrook.siptop\" ${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop",
-        "desktop-file-edit --set-key=\"Exec\" --set-value=\"siptop.sh %U\" ${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop",
-        "desktop-file-edit --set-key=\"StartupWMClass\" --set-value=\"siptop\" ${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop",
-        "desktop-file-edit --set-key=\"X-Flatpak-RenamedFrom\" --set-value=\"siptop.desktop;\" ${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop",
+        "install -Dm644 com.greyrook.siptop.metainfo.xml ${FLATPAK_DEST}/share/appdata/${FLATPAK_ID}.metainfo.xml",
+        "install -Dm644 com.greyrook.siptop.icon.png ${FLATPAK_DEST}/share/icons/hicolor/512x512/apps/${FLATPAK_ID}.png",
+        "install -Dm644 com.greyrook.siptop.desktop ${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop",
         "install -Dm755 /usr/bin/ar -t ${FLATPAK_DEST}/bin",
         "install -Dm755 /usr/lib/$(gcc -print-multiarch)/libbfd-*.so -t ${FLATPAK_DEST}/lib"
       ],
@@ -48,24 +40,32 @@
           "type": "script",
           "dest-filename": "siptop.sh",
           "commands": [
-            "exec env TMPDIR=$XDG_CACHE_HOME /app/bin/siptop --no-sandbox\"$@\""
+             "export TMPDIR=\"$XDG_RUNTIME_DIR/app/$FLATPAK_ID\"",
+             "exec zypak-wrapper /app/bin/siptop \"$@\""
           ]
         },
         {
           "type": "file",
-          "path": "com.greyrook.siptop.appdata.xml"
+          "url": "https://raw.githubusercontent.com/GreyRook/siptop/58683f65888d8b9ffa573e1efa79562b02946c13/com.greyrook.siptop.metainfo.xml",
+          "dest-filename": "com.greyrook.siptop.metainfo.xml",
+          "sha256": "8837a7c3f56ea850f6dd5505303676ac07455eecd57b7da34ff2a56808382d82"
         },
         {
           "type": "file",
-          "path": "./static/icon.png"
+          "url": "https://raw.githubusercontent.com/GreyRook/siptop/58683f65888d8b9ffa573e1efa79562b02946c13/static/icon.png",
+          "dest-filename": "com.greyrook.siptop.icon.png",
+          "sha256": "e8439bfac60a3b270d653cc8fa295da278bd4c37f1fa0134a8a374b270509962"
         },
         {
           "type": "file",
-          "path": "./static/siptop.desktop"
+          "url": "https://raw.githubusercontent.com/GreyRook/siptop/58683f65888d8b9ffa573e1efa79562b02946c13/static/siptop.desktop",
+          "dest-filename": "com.greyrook.siptop.desktop",
+          "sha256": "8ac7fb8e01083bfa91d3b3dd7c60893b21934b9b5d464d0c69e468ad1196b44a"
         },
         {
           "type": "archive",
-          "path": "./dist/siptop-0.1.0.tar.gz",
+          "url": "https://github.com/GreyRook/siptop/releases/download/v0.1.0/siptop-0.1.0.x86_64.tar.gz",
+          "sha256": "372855af895f09b437d92580e5e8cf80e0ec3603512a8a049d29b8ec15242180",
           "only-arches": ["x86_64"],
           "strip-components": 0
         }
