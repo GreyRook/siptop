@@ -16,7 +16,7 @@ Siptop turns sipgate's [G Suite integration](https://www.sipgateteam.de/funktion
 ## Install
 
 ### Install on Linux (via Flathub)
-<a href='https://flathub.org/apps/details/org.gimp.GIMP'><img width='240' alt='Download on Flathub' src='https://flathub.org/assets/badges/flathub-badge-en.png'/></a>
+<a href='https://flathub.org/apps/details/com.greyrook.siptop'><img width='240' alt='Download on Flathub' src='https://flathub.org/assets/badges/flathub-badge-en.png'/></a>
 
 ⚠ Installing via Flathub is currently the only install method that supports updates. ⚠
 
@@ -24,10 +24,10 @@ Siptop turns sipgate's [G Suite integration](https://www.sipgateteam.de/funktion
 
 Go to [releases](https://github.com/GreyRook/siptop/releases) and download the file you need:
 
- * [siptop-0.1.0.dmg](https://github.com/GreyRook/siptop/releases/download/v0.1.0/siptop-0.1.0.dmg) - Mac OS X
- * [siptop-0.1.0.x86_64.rpm](https://github.com/GreyRook/siptop/releases/download/v0.1.0/siptop-0.1.0.x86_64.rpm) - Linux RPM (currently only tested on Fedora 31)
- * [siptop-0.1.0.x86_64.tar.gz](https://github.com/GreyRook/siptop/releases/download/v0.1.0/siptop-0.1.0.x86_64.tar.gz) - Linux archive - distribution independed
- * [siptop.Setup.0.1.0.exe](https://github.com/GreyRook/siptop/releases/download/v0.1.0/siptop.Setup.0.1.0.exe) - Windows 10 installer
+ * [siptop-0.1.1.dmg](https://github.com/GreyRook/siptop/releases/download/v0.1.1/siptop-0.1.1.dmg) - Mac OS X
+ * [siptop-0.1.1.x86_64.rpm](https://github.com/GreyRook/siptop/releases/download/v0.1.1/siptop-0.1.1.x86_64.rpm) - Linux RPM (currently only tested on Fedora 31)
+ * [siptop-0.1.1.x86_64.tar.gz](https://github.com/GreyRook/siptop/releases/download/v0.1.1/siptop-0.1.1.x86_64.tar.gz) - Linux archive - distribution independed
+ * [siptop.Setup.0.1.1.exe](https://github.com/GreyRook/siptop/releases/download/v0.1.1/siptop.Setup.0.1.1.exe) - Windows 10 installer
 
 
 ## Developer setup
@@ -83,3 +83,4 @@ flatpak run com.greyrook.siptop
     * Update Version and hashes
     * update app-stream: add new `<release>`
  * update `com.greyrook.siptop.json` on flathub
+ * update links in `README.md`
