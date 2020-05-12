@@ -74,3 +74,12 @@ flatpak-builder build com.greyrook.siptop.json --install --user --force-clean
 flatpak run com.greyrook.siptop
 ```
 
+##### Releasing a new version
+
+
+ * Ensure `CHANGELOG.md` is up to date
+ * Update Version in `package.json`
+ * `com.greyrook.siptop.json`
+    * Update Version and hashes
+    * update app-stream: add new `<release>`
+ * update `com.greyrook.siptop.json` on flathub
