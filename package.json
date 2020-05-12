@@ -1,7 +1,7 @@
 {
   "name": "siptop",
   "productName": "siptop",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "sipgate for desktop",
   "main": "main.js",
   "scripts": {
