@@ -10,7 +10,7 @@
     "build": "electron-builder --linux --win",
     "pack": "electron-builder --dir"
   },
-  "repository": "https://github.com/vdbongard/siptop",
+  "repository": "https://github.com/GreyRook/siptop",
   "keywords": [
     "sipgate",
     "listener",
@@ -18,8 +18,8 @@
     "tray"
   ],
   "author": {
-    "name": "Daniel van den Bongard",
-    "email": "d.van-den-bongard@greyrook.com",
+    "name": "Grey Rook GmbH",
+    "email": "info@greyrook.com",
     "url": "https://greyrook.com"
   },
   "license": "Apache-2.0",
