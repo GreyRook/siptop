@@ -21,6 +21,9 @@
     <category>Telephony</category>
   </categories>
   <releases>
+    <release date="2020-05-12" version="0.1.1">
+      <description>Bugfix release</description>
+    </release>
     <release date="2020-03-23" version="0.1.0">
       <description>Initial release</description>
     </release>
@@ -31,5 +34,5 @@
     <content_attribute id="social-audio">intense</content_attribute>
     <content_attribute id="social-contacts">intense</content_attribute>
   </content_rating>
-  <update_contact>d.van-den-bongard@greyrook.com</update_contact>
+  <update_contact>infod@greyrook.com</update_contact>
 </component>
