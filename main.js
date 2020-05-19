@@ -89,7 +89,9 @@ function createWindow() {
     }
   });
 
-  tray = new Tray(path.join(__dirname, "static/tray-icon.png"));
+  if (process.platform !== "darwin") tray = new Tray(path.join(__dirname, "static/tray-icon.png"));
+  else tray = new Tray(path.join(__dirname, "static/tray-icon-osx.png"));
+  
   tray.setToolTip("Open");
   const contextMenu = Menu.buildFromTemplate([
     {
